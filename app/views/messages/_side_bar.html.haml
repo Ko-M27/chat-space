@@ -1,0 +1,21 @@
+.side_bar
+  .left-header
+    .left-header__user
+      %h3.left-header__user-name Ko-dai
+      %ul.left-header__user-edit
+        %li.left-header__edit-icon
+          = link_to "#" do
+            %i.far.fa-edit
+        %li.left-header__edit-icon
+          = link_to "#" do
+            %i.fas.fa-user-cog
+
+  .group-list
+    .group
+      = link_to "#" do
+        %p.group__name TECH::CAMP#78
+        %p.group__new-message まだメッセージはありません
+    .group
+      = link_to "#" do
+        %p.group__name TECH::CAMP
+        %p.group__new-message まだメッセージはありません

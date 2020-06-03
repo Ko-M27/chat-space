@@ -1,0 +1,32 @@
+.main_chat
+  .right-header
+    .group-info
+      %p.group-info__name TECH::CAMP#78
+      %ul.group-info__member
+        %p Menbr:
+        %li MK
+        %li SR
+    = link_to "#", class:"group-editer" do
+      Edit
+
+  .message-list
+    .message-container
+      .message-info
+        %p.message-info__name Ko-dai
+        %p.message-info__date 2020年6月1日
+      %p.message-text test
+    .message-container
+      .message-info
+        %p.message-info__name Ko-dai
+        %p.message-info__date 2020年6月2日
+      %p.message-text sample
+
+  .right-footer
+    %form.message-form
+      = form_with url: "#" do |form|
+        .form-contents
+          = form.text_field :text, placeholder: "Type a message", class: "input-form"
+          = form.label :image, class: "up-image__icon" do
+            %i.fas.fa-photo-video
+            = form.file_field :image, class: "up-image__file"
+        = form.submit "SEND", class: "send-btn"
