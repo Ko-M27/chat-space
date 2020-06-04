@@ -1,13 +1,14 @@
 .side_bar
   .left-header
     .left-header__user
-      %h3.left-header__user-name Ko-dai
+      %h3.left-header__user-name 
+        = current_user.name
       %ul.left-header__user-edit
         %li.left-header__edit-icon
-          = link_to "#" do
+          = link_to edit_user_path(current_user) do
             %i.far.fa-edit
         %li.left-header__edit-icon
-          = link_to "#" do
+          = link_to edit_user_path(current_user) do
             %i.fas.fa-user-cog
 
   .group-list
