@@ -1,32 +1,24 @@
 .main_chat
   .right-header
     .group-info
-      %p.group-info__name TECH::CAMP#78
-      %ul.group-info__member
-        %p Menbr:
-        %li MK
-        %li SR
-    = link_to "#", class:"group-editer" do
+      %p.group-info__name 
+        = @group.name
+      .group-info__member
+        %p Member:
+        %p 
+          = @group.users.pluck(:name).join(", ")
+
+    = link_to edit_group_path(@group), class:"group-editer" do
       Edit
 
   .message-list
-    .message-container
-      .message-info
-        %p.message-info__name Ko-dai
-        %p.message-info__date 2020年6月1日
-      %p.message-text test
-    .message-container
-      .message-info
-        %p.message-info__name Ko-dai
-        %p.message-info__date 2020年6月2日
-      %p.message-text sample
+    = render @messages
 
   .right-footer
-    %form.message-form
-      = form_with url: "#" do |form|
-        .form-contents
-          = form.text_field :text, placeholder: "Type a message", class: "input-form"
-          = form.label :image, class: "up-image__icon" do
-            %i.fas.fa-photo-video
-            = form.file_field :image, class: "up-image__file"
-        = form.submit "SEND", class: "send-btn"
+    = form_with model: [@group, @message], html: {class: "message-form"}, local: true do |form|
+      .form-contents
+        = form.text_field :content, class: "input-form", placeholder: "Type a message"
+        = form.label :image, class: "up-image__icon" do
+          %i.fas.fa-photo-video
+          = form.file_field :image, class: "up-image__file"
+      = form.submit "SEND", class: "send-btn"
