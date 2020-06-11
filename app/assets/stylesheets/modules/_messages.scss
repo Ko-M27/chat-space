@@ -65,6 +65,7 @@
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid darkgray;
     .group-info {
       margin-top: 35px;
       &__name {
@@ -99,6 +100,7 @@
     height: calc(100vh - 190px);
     padding: 35px 40px 10px 40px;
     background-color: #fafafa;
+    overflow: scroll;
     .message-container {
       margin-bottom: 46px;
       .message-info {
