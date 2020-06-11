@@ -39,6 +39,11 @@ $(function(){
       return html;
     }
   };
+  function formReset(){
+    $('.message-form')[0].reset();
+    $('.input-form').val('')
+    $('.send-btn').prop('disabled', false);
+  };
   $('.message-form').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
@@ -53,17 +58,13 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
+      formReset();
       $('.message-list').append(html);
-      $('.message-form')[0].reset();
       $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
-      $('.input-form').val('')
-      $('.send-btn').prop('disabled', false);
     })
     .fail(function() {
       alert('メッセージを入力してください。');
-      $('.message-form')[0].reset();
-      $('.input-form').val('')
-      $('.send-btn').prop('disabled', false);
+      formReset();
     });
   });
 });
