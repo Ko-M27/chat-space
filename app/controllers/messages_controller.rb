@@ -30,8 +30,4 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
-  def group_member
-    user
-  end
-  
 end
